@@ -13,5 +13,8 @@
     <StackPanel Orientation="Vertical">
         <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" Text="Hey" VerticalAlignment="Top" FontSize="35"></TextBlock>
         <TextBlock Text="{StaticResource strHelloAgain}" FontSize="45" HorizontalAlignment="Center"></TextBlock>
+        <Button Height="30" Width="100" Content="Add listener" Click="addButton_Click"></Button>
+        <Button Height="30" Width="100" Content="Remove listener" Click="rmvButton_Click"></Button>
+        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="20" x:Name="focushistory"></TextBlock>
     </StackPanel>
 </Window>
