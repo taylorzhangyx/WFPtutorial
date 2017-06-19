@@ -29,6 +29,7 @@ namespace Wpftutorial.methods
             if (focusHandler != null)
             {
                 Automation.RemoveAutomationFocusChangedEventHandler(window.OnFocusChange);
+                focusHandler = null;
             }
         }
 
