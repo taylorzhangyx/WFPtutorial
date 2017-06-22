@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Wpftutorial
@@ -13,5 +12,19 @@ namespace Wpftutorial
     /// </summary>
     public partial class App : Application
     {
+        Window appBar;
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            MainWindow = new MainWindow();
+            MainWindow.Show();
+            initAppBar();
+        }
+
+
+        private void initAppBar()
+        {
+            appBar = new AppBar();
+            appBar.Show();
+        }
     }
 }
