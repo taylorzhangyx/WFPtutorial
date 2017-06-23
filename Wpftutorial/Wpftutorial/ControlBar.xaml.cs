@@ -35,14 +35,14 @@ namespace Wpftutorial
             }));
 
             this.Deactivated += Window_Deactivated;
-
-
+            
         }
 
         private void Window_Deactivated(object sender, EventArgs e)
         {
             Window window = (Window)sender;
             window.Topmost = true;
+            Console.WriteLine("Control Bar Deactivated.");
         }
     }
 }

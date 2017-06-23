@@ -25,9 +25,19 @@ namespace Wpftutorial
             InitializeComponent();
             this.Title = "taylor demo";
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.GotFocus += getFocus;
         }
 
         private Automation​Focus​Changed​Event autofocus = new Automation​Focus​Changed​Event();
+
+
+        private void getFocus(object sender, EventArgs e)
+        {
+            Console.WriteLine("MainWindow Get Focus!");
+            Window window = (Window)sender;
+            window.Topmost = true;
+        }
+
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
