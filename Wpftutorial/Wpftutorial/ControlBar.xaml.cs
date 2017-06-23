@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Wpftutorial
 {
@@ -22,6 +23,26 @@ namespace Wpftutorial
         public ControlBar()
         {
             InitializeComponent();
+
+            Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() =>
+            {
+                var workingArea = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea;
+                var transform = PresentationSource.FromVisual(this).CompositionTarget.TransformFromDevice;
+                var corner = transform.Transform(new Point(workingArea.Right, workingArea.Bottom));
+
+                this.Left = corner.X - this.ActualWidth - 100;
+                this.Top = corner.Y - this.ActualHeight;
+            }));
+
+            this.Deactivated += Window_Deactivated;
+
+
+        }
+
+        private void Window_Deactivated(object sender, EventArgs e)
+        {
+            Window window = (Window)sender;
+            window.Topmost = true;
         }
     }
 }

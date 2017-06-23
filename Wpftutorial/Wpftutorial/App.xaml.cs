@@ -23,7 +23,7 @@ namespace Wpftutorial
 
         private void initAppBar()
         {
-            appBar = new AppBar();
+            appBar = new ControlBar();
             appBar.Show();
         }
     }

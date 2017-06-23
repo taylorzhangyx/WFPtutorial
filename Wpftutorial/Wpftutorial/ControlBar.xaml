@@ -41,7 +41,7 @@
         </Button>
         <Button Grid.Row="0" Grid.Column="4" Height="50" Width="50" Background="Transparent">
             <Button.Content>
-                <Image Source="./Asset/coffee.ico"></Image>
+                <Image Source="./Asset/dot.ico"></Image>
             </Button.Content>
         </Button>
     </Grid>
