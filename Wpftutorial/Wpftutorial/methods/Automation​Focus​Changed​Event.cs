@@ -16,7 +16,7 @@ namespace Wpftutorial.methods
         /// </summary>
         public void SubscribeToFocusChange(MainWindow window)
         {
-            focusHandler = new AutomationFocusChangedEventHandler(window.OnFocusChange);
+            //focusHandler = new AutomationFocusChangedEventHandler(window.OnFocusChange);
             Automation.AddAutomationFocusChangedEventHandler(focusHandler);
         }
 
@@ -28,7 +28,7 @@ namespace Wpftutorial.methods
         {
             if (focusHandler != null)
             {
-                Automation.RemoveAutomationFocusChangedEventHandler(window.OnFocusChange);
+                //Automation.RemoveAutomationFocusChangedEventHandler(window.OnFocusChange);
                 focusHandler = null;
             }
         }

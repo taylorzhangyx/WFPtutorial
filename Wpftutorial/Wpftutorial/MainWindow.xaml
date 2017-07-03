@@ -3,18 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Wpftutorial"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" ResizeMode="CanResize" MouseMove="Window_MouseMove">
+        Title="DataContextSample" Height="130" Width="310">
     <Window.Resources>
         <sys:String x:Key="strHelloAgain">Hello Again</sys:String>
     </Window.Resources>
-    <StackPanel Orientation="Vertical">
-        <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" Text="Hey" VerticalAlignment="Top" FontSize="35"></TextBlock>
-        <TextBlock Text="{StaticResource strHelloAgain}" FontSize="45" HorizontalAlignment="Center"></TextBlock>
-        <Button Height="30" Width="100" Content="Add listener" Click="addButton_Click"></Button>
-        <Button Height="30" Width="100" Content="Remove listener" Click="rmvButton_Click"></Button>
-        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="20" x:Name="focushistory"></TextBlock>
+    <StackPanel Margin="15">
+        <WrapPanel>
+            <TextBlock Text="Window title:  " />
+            <TextBox Name="txtWindowTitle" Text="{Binding Title, UpdateSourceTrigger=Explicit}" Width="150" />
+            <Button Name="btnUpdateSource" Click="btnUpdateSource_Click" Margin="5,0" Padding="5,0">*</Button>
+        </WrapPanel>
+        <WrapPanel Margin="0,10,0,0">
+            <TextBlock Text="Window dimensions: " />
+            <TextBox Text="{Binding Width, UpdateSourceTrigger=LostFocus}" Width="50" />
+            <TextBlock Text=" x " />
+            <TextBox Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}" Width="50" />
+        </WrapPanel>
     </StackPanel>
 </Window>
